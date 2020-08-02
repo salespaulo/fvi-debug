@@ -1,12 +1,18 @@
 'use strict'
 
 const chai = require('chai')
-const app = require('../app')
+const debug = require('../app')
 
 describe('Debug library - Notice', () => {
-    it('Load library is OK?', done => {
-        chai.assert.isOk(!!app.debug.here)
-        chai.assert.isOk(!!app.debug('test-it'))
+    it('Library functions is OK?', done => {
+        chai.assert.isOk(!!debug.here)
+        chai.assert.isOk(!!debug('test-it'))
+        done()
+    })
+
+    it('Library is OK?', done => {
+        debug.here('Testing :: (here) :: message!')
+        debug('test-it')('Testing :: test-it :: message!')
         done()
     })
 })
