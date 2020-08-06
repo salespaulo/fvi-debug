@@ -1,3 +1,20 @@
+## FVI - Debug Library
+
+From [debug.js](https://www.npmjs.com/package/debug) with steroids!
+
+### Docs
+
+-   Debuging **here**, messages from running app:
+
+```
+const debug = require('fvi-debug)
+debug.here(`Debug message from ${path.resolve(path.basename())}`)
+```
+
+### Audit
+
+-   [HIGH](./AUDIT.md)
+
 # fvi-debug
 
 -   `npm run compile`: Clean temp files and e directories.
@@ -11,16 +28,3 @@
 -   `npm run release:minor`: Init git flow release from next package version, **minor**, [git flow](https://github.com/nvie/gitflow/).
 -   `npm run release:major`: Init git flow release from next package version, **major**, [git flow](https://github.com/nvie/gitflow/) release start.
 -   `npm run release:finish`: Finish current releas, [git flow](https://github.com/nvie/gitflow/).
-
-## FVI - Debug Library
-
-From [debug.js](https://www.npmjs.com/package/debug) with steroids!
-
-### Docs
-
--   Debuging **here**, messages from running app:
-
-```
-const debug = require('fvi-debug)
-debug.here(`Debug message from ${path.resolve(path.basename())}`)
-```

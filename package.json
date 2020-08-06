@@ -1,8 +1,13 @@
 {
     "name": "fvi-debug",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "FVI - Debug Library",
-    "main": "app/index.js",
+    "main": "dist/index.js",
+    "module": "src/index.js",
+    "files": [
+        "dist/*",
+        "src/*"
+    ],
     "prettier": "fvi-prettier-config",
     "scripts": {
         "compile": "grunt compile",
@@ -36,7 +41,10 @@
     },
     "devDependencies": {
         "chai": "^4.2.0",
-        "grunt": "^1.0.4",
+        "@babel/cli": "^7.10.1",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "grunt": "^1.2.1",
         "grunt-concurrent": "^3.0.0",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-compress": "^1.6.0",
@@ -47,7 +55,7 @@
         "grunt-notify": "^0.4.5",
         "grunt-shell": "^3.0.1",
         "fvi-prettier-config": "^0.0.1",
-        "load-grunt-tasks": "^5.0.1",
-        "mocha": "^7.1.0"
+        "load-grunt-tasks": "^5.1.0",
+        "mocha": "^8.1.0"
     }
 }
