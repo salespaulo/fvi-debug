@@ -2,11 +2,12 @@
 
 var path = require('path')
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     var pkg = grunt.file.readJSON('package.json')
 
     var paths = {
-        app: path.join(path.resolve(), '/app'),
+        app: path.join(path.resolve(), '/src'),
+        dist: path.join(path.resolve(), '/dist'),
         test: path.join(path.resolve(), '/test/**/*.js'),
     }
 
@@ -26,6 +27,9 @@ module.exports = function(grunt) {
     }
 
     var shell = {
+        babel: {
+            command: 'babel <%= paths.app %> --out-dir <%= paths.dist %>',
+        },
         exec: {
             command: 'node app',
         },
@@ -75,11 +79,11 @@ module.exports = function(grunt) {
     var watch = {
         debug: {
             files: ['<%= paths.app %>/**/*.js', '<%= paths.test %>'],
-            tasks: ['env:debugtest', 'mochaTest', 'env:debugdev'],
+            tasks: ['compile', 'env:debugtest', 'mochaTest', 'env:debugdev'],
         },
         js: {
             files: ['<%= paths.app %>/**/*.js', '<%= paths.test %>'],
-            tasks: ['env:test', 'mochaTest', 'env:dev'],
+            tasks: ['compile', 'env:test', 'mochaTest', 'env:dev'],
         },
     }
 
@@ -136,7 +140,7 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt)
 
-    grunt.registerTask('compile', ['clean'])
+    grunt.registerTask('compile', ['clean', 'shell:babel'])
 
     grunt.registerTask('test', ['env:test', 'compile', 'mochaTest', 'notify:test'])
     grunt.registerTask('debug-test', ['env:debugtest', 'compile', 'mochaTest', 'notify:test'])

@@ -1,7 +1,7 @@
 'use strict'
 
 const chai = require('chai')
-const debug = require('../app')
+const debug = require('../src')
 
 describe('Debug library - Notice', () => {
     it('Library functions is OK?', done => {
